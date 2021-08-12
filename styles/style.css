@@ -1,0 +1,7 @@
+#table {
+    display: grid;
+}
+
+#new-book {
+    width: max-content;
+}
