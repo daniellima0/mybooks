@@ -1,7 +1,139 @@
-#table {
-    display: grid;
+:root {
+	--red: #ff4d6d;
+	--lightred: #ff758f;
+	--pink: #FF8FA3;
+	--darkgrey: #343a40;
+	--grey: #6c757d;
+	--lightgrey: #adb5bd;
+	--headerHeight: 5.5rem;
+	--tableTopMargin: 15rem;
+	--footerTopMargin: 5rem;
+	--footerHeight: 4rem;
 }
 
-#new-book {
-    width: max-content;
+html {
+	font-family: 'Public Sans', sans-serif;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	background-color: var(--red);
+	height: var(--headerHeight)
+}
+
+header img {
+	width: auto;
+	height: 4rem;
+	margin-left: 3rem;
+}
+
+header span {
+	color: white;
+	font-weight: bold;
+	font-size: 2rem;
+	margin-left: 2rem;
+}
+
+main {
+	min-height: calc(100vh - var(--headerHeight) - var(--tableTopMargin) - var(--footerTopMargin) - var(--footerHeight));
+}
+
+#table {
+	width: 50vw;
+	height: max-content;
+	margin: auto;
+	margin-top: var(--tableTopMargin);
+	border-collapse: collapse;
+}
+
+tr {
+	border-bottom: 0.1rem solid var(--lightgrey);
+}
+
+th {
+	height: 3rem;
+	padding: 0;
+	color: var(--red);
+	font-size: 1rem;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+td {
+	padding: 0.2rem 1rem 0.2rem 1rem;
+	text-align: center;
+	align-items: center;
+	vertical-align: middle;
+	height: 3rem;
+	color: var(--darkgrey);
+}
+
+.status {
+	border: 0.1rem solid var(--lightgrey);
+	border-radius: 0.3rem;
+	padding: 0.4rem;
+}
+
+#clear-button, .delete-button {
+	background-color: var(--red);
+	border: none;
+	color: white;
+	font-size: 1rem;
+	font-weight: bold;
+	font-family: 'Public Sans', sans-serif;
+	border-radius: 0.2rem;
+	padding: 0.3rem;
+}
+
+#clear-button:hover, .delete-button:hover {
+	background-color: var(--lightred);
+	cursor: pointer;
+}
+
+#table img {
+	width: 1.4rem;
+	height: 1.4rem;
+}
+
+#new-book-button {
+	margin-left: 25vw;
+	width: max-content;
+	height: 4rem;
+	border: none;
+	background-color: white;
+	color: var(--grey);
+	padding: 0;
+	font-size: 1rem;
+}
+
+#new-book-button:hover {
+	cursor: pointer;
+	color: var(--lightgrey);
+}
+
+footer {
+	display: flex;
+	align-items: center;
+	margin: auto;
+	margin-top: var(--footerTopMargin);
+	height: var(--footerHeight);
+	width: max-content;
+	position: relative;
+	font-size: 1.2rem;
+}
+
+footer a {
+	text-decoration: none;
+	color: var(--darkgrey);
+}
+
+footer i {
+	font-size: 1.5rem;
+	margin-left: 0.5rem;
+}
+
+footer a:hover, i:hover {
+	color: blue;
+	cursor: pointer;
 }

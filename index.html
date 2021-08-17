@@ -2,23 +2,66 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/jpg" href="images/book.png">
-    <title>Library</title>
-    <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/script.js" defer></script>
+	<title>MyBooks</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" type="image/jpg" href="images/books.png" />
+	<link rel="stylesheet" href="styles/reset.css" />
+	<link rel="stylesheet" href="styles/style.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap"
+		rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/b6760ea8bc.js"
+		crossorigin="anonymous"></script>
+	<script src="scripts/script.js" defer></script>
 </head>
 
 <body>
-    <main>
-        <section id='table'>
-            <!-- elements add by js -->
-            <button id='new-book'>New Book</button>
-        </section>
-    </main>
+	<header>
+		<img src="./images/books.png"
+			alt="Site logo (two books standing side by side)" />
+		<span>MyBooks</span>
+	</header>
+	<main>
+		<table id="table">
+			<tr>
+				<th>Book</th>
+				<th>Author</th>
+				<th>Pages</th>
+				<th>Status</th>
+				<th><button id="clear-button">Clear All</button></th>
+			</tr>
+			<tr>
+				<td>A Game of Thrones</td>
+				<td>George R. R. Martin</td>
+				<td>780</td>
+				<td><span class='status'>Read</span></td>
+				<td><button class="delete-button"><img
+							src="./images/trash-can3.png" alt="Delete"></button>
+				</td>
+			</tr>
+			<tr>
+				<td>The Hobbit</td>
+				<td>J. R. R. Tolkien</td>
+				<td>297</td>
+				<td><span class='status'>Unread</span></td>
+				<td><button class="delete-button"><img
+							src="./images/trash-can3.png" alt="Delete"></button>
+				</td>
+		</table>
+		<button id="new-book-button">+ New Book</button>
+	</main>
+	<footer>
+		<span>
+			<a href="https://github.com/daniellima0" target="blank">Copyright
+				&copy;
+				daniellima0</a>
+		</span>
+		<i class="fab fa-github"></i>
+	</footer>
 </body>
 
 </html>
