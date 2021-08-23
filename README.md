@@ -9,3 +9,9 @@ This project was built with plain HTML, CSS and Javascript and it is part of [Th
 
 ## Live Demo
 This project is hosted on my GitHub Pages and you can access it [in here](https://daniellima0.github.io/library/).
+
+## Key Concepts
+* Display Table (CSS3)
+* DOM Manipulation
+* Objects
+* Objects Constructors
