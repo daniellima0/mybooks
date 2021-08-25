@@ -1,17 +1,22 @@
 :root {
 	--red: #ff4d6d;
 	--lightred: #ff758f;
-	--pink: #FF8FA3;
+	--pink: #ff8fa3;
 	--darkgrey: #343a40;
 	--grey: #6c757d;
 	--lightgrey: #adb5bd;
+	--othergrey: #ddd;
 	--headerHeight: 5.5rem;
-	--tableTopMargin: 15rem;
+	--formTopMargin: 6rem;
+	--tableTopMargin: 8rem;
 	--footerTopMargin: 5rem;
 	--footerHeight: 4rem;
+	--captionBottomMargin: 2rem;
 }
 
-html {
+html,
+input,
+button {
 	font-family: 'Public Sans', sans-serif;
 }
 
@@ -19,7 +24,7 @@ header {
 	display: flex;
 	align-items: center;
 	background-color: var(--red);
-	height: var(--headerHeight)
+	height: var(--headerHeight);
 }
 
 header img {
@@ -36,7 +41,79 @@ header span {
 }
 
 main {
-	min-height: calc(100vh - var(--headerHeight) - var(--tableTopMargin) - var(--footerTopMargin) - var(--footerHeight));
+	min-height: calc(
+		100vh - var(--headerHeight) - var(--formTopMargin) - var(--footerTopMargin) -
+			var(--footerHeight)
+	);
+	text-align: center;
+}
+
+form {
+	display: flex;
+	align-items: center;
+	margin: auto;
+	margin-top: var(--formTopMargin);
+	width: max-content;
+	padding: 3rem 0;
+	box-shadow: 0 0.5rem 1rem 0.2rem var(--othergrey);
+}
+
+form div {
+	display: flex;
+	flex-direction: column;
+	padding: 0 1.5rem;
+	align-items: center;
+}
+
+form label {
+	padding-bottom: 0.8rem;
+	color: var(--red);
+	font-weight: bold;
+	font-size: 1.1rem;
+}
+
+form input {
+	outline: none;
+	padding: 0.2rem 0.4rem;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-color: black;
+	border-width: 0.1rem;
+	font-weight: bold;
+	font-size: 1rem;
+	color: var(--red);
+}
+
+form input::placeholder {
+	color: var(--red);
+	opacity: 1;
+}
+
+#pages-input{
+	text-align: center;
+	width: 5rem;
+}
+
+#status-input {
+	width: 1.1rem;
+	height: 1.1rem;
+}
+
+#status-input:checked {
+	background-color: var(--red);
+	color: var(--red);
+}
+
+#submit-button {
+	background-color: var(--red);
+	color: white;
+	border: none;
+	border-radius: 0.2rem;
+	width: 6rem;
+	height: 2rem;
+	font-weight: bold;
+	font-size: 1rem;
 }
 
 #table {
@@ -47,20 +124,27 @@ main {
 	border-collapse: collapse;
 }
 
-tr {
+#table caption {
+	color: var(--red);
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: var(--captionBottomMargin);
+}
+
+#table tr {
 	border-bottom: 0.1rem solid var(--lightgrey);
 }
 
-th {
+#table th {
 	height: 3rem;
 	padding: 0;
 	color: var(--red);
-	font-size: 1rem;
+	font-size: 1.1rem;
 	font-weight: bold;
 	vertical-align: middle;
 }
 
-td {
+#table td {
 	padding: 0.2rem 1rem 0.2rem 1rem;
 	text-align: center;
 	align-items: center;
@@ -69,25 +153,34 @@ td {
 	color: var(--darkgrey);
 }
 
+#empty-message {
+	position: relative;
+	top: 1rem;
+	color: var(--grey);
+	font-size: 1.2rem;
+}
+
 .status {
 	border: 0.1rem solid var(--lightgrey);
 	border-radius: 0.3rem;
 	padding: 0.4rem;
 }
 
-#clear-button, .delete-button {
+#clear-button,
+.delete-button {
 	background-color: var(--red);
 	border: none;
 	color: white;
 	font-size: 1rem;
 	font-weight: bold;
-	font-family: 'Public Sans', sans-serif;
 	border-radius: 0.2rem;
 	padding: 0.3rem;
 }
 
-#clear-button:hover, .delete-button:hover {
-	background-color: var(--lightred);
+#clear-button:hover,
+.delete-button:hover,
+#submit-button:hover {
+	background-color: var(--red);
 	cursor: pointer;
 }
 
@@ -133,7 +226,8 @@ footer i {
 	margin-left: 0.5rem;
 }
 
-footer a:hover, i:hover {
+footer a:hover,
+i:hover {
 	color: blue;
 	cursor: pointer;
 }
