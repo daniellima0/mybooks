@@ -30,19 +30,28 @@
 			<span>MyBooks</span>
 		</header>
 		<main>
-			<form>
-				<div id="book-div">
-					<input type="text" id="book-input" placeholder="Book" required/>
+			<form onsubmit="return false;">
+				<div id="title-div">
+					<label for="title-input">Title</label>
+					<input type="text" id="title-input" required />
 				</div>
 				<div id="author-div">
-					<input type="text" id="author-input" placeholder="Author" required/>
+					<label for="author-input">Author</label>
+					<input type="text" id="author-input" required />
 				</div>
 				<div id="pages-div">
-					<input type="number" id="pages-input" placeholder="Pages" required/>
+					<label for="pages-input">Number of Pages</label>
+					<input type="number" id="pages-input" required />
 				</div>
 				<div id="status-div">
-					<label for="status-input">Have you read?</label>
-					<input type="checkbox" id="status-input" />
+					<div id="unread-div">
+						<input type="radio" id="unread-input" name="status" required/>
+						<label for="unread-input">Unread</label>
+					</div>
+					<div id="read-div">
+						<input type="radio" id="read-input" name="status" required/>
+						<label for="read-input">Read</label>
+					</div>
 				</div>
 				<div id="button-div">
 					<button id="submit-button">Add Book</button>
@@ -54,14 +63,14 @@
 					List of books
 				</caption>
 				<tr>
-					<th>Book</th>
+					<th>Title</th>
 					<th>Author</th>
 					<th>Pages</th>
 					<th>Status</th>
 					<th><button id="clear-button">Clear All</button></th>
 				</tr>
 			</table>
-			<span id="empty-message">You don't have any books yet :(</span>
+			<!-- <span id="empty-message">You don't have any books yet :(</span> -->
 		</main>
 		<footer>
 			<span>

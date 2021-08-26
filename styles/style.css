@@ -45,12 +45,10 @@ main {
 		100vh - var(--headerHeight) - var(--formTopMargin) - var(--footerTopMargin) -
 			var(--footerHeight)
 	);
-	text-align: center;
 }
 
 form {
 	display: flex;
-	align-items: center;
 	margin: auto;
 	margin-top: var(--formTopMargin);
 	width: max-content;
@@ -62,7 +60,6 @@ form div {
 	display: flex;
 	flex-direction: column;
 	padding: 0 1.5rem;
-	align-items: center;
 }
 
 form label {
@@ -74,35 +71,35 @@ form label {
 
 form input {
 	outline: none;
-	padding: 0.2rem 0.4rem;
+	padding-right: 0.4rem;
 	border-top: none;
 	border-right: none;
 	border-left: none;
 	border-color: black;
 	border-width: 0.1rem;
-	font-weight: bold;
 	font-size: 1rem;
-	color: var(--red);
+	color: var(--darkgrey);
 }
 
-form input::placeholder {
-	color: var(--red);
-	opacity: 1;
+#pages-input {
+	width: 9.5rem;
 }
 
-#pages-input{
-	text-align: center;
-	width: 5rem;
+#unread-div,
+#read-div {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
 }
 
-#status-input {
-	width: 1.1rem;
-	height: 1.1rem;
+#unread-div label,
+#read-div label {
+	margin-left: 0.2rem;
 }
 
-#status-input:checked {
-	background-color: var(--red);
-	color: var(--red);
+#button-div {
+	display: flex;
+	margin: auto;
 }
 
 #submit-button {
@@ -180,7 +177,7 @@ form input::placeholder {
 #clear-button:hover,
 .delete-button:hover,
 #submit-button:hover {
-	background-color: var(--red);
+	background-color: var(--lightred);
 	cursor: pointer;
 }
 
