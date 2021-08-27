@@ -5,20 +5,8 @@ function Book(title, author, pages, status) {
 	this.status = status;
 }
 
-function addBookToLibrary(newBookObject) {
-	myLibrary.push(newBookObject);
-}
-
-function displayBooks() {
-	for (let i = 0; i < myLibrary.length; i++) {
-		tbody.innerHTML += `<tr>
-    <td>${myLibrary[i].title}</td>
-    <td>${myLibrary[i].author}</td>
-    <td>${myLibrary[i].pages}</td>
-    <td>${myLibrary[i].status}</td>
-    <td><button class="delete-button"><img src="./images/trash-can3.png" alt=""></button></td>
-    </tr>`;
-	}
+function addBookToArray(book) {
+	myLibrary.push(book);
 }
 
 function removeBooksFromScreen() {
@@ -27,6 +15,20 @@ function removeBooksFromScreen() {
 
 	for (let i = 1; i < tbodyLength; i++) {
 		tbodyChildrenArray[i].remove();
+	}
+}
+
+function redisplayBooks() {
+	removeBooksFromScreen();
+
+	for (let i = 0; i < myLibrary.length; i++) {
+		tbody.innerHTML += `<tr>
+			<td>${myLibrary[i].title}</td>
+			<td>${myLibrary[i].author}</td>
+			<td>${myLibrary[i].pages}</td>
+			<td>${myLibrary[i].status}</td>
+			<td><button class="delete-button" onclick="deleteBook(${myLibrary[i].index});"><img src="./images/trash-can3.png" alt=""></button></td>
+		</tr>`;
 	}
 }
 
@@ -48,7 +50,27 @@ function checkBookStatus() {
 	return 'Unread';
 }
 
-function hideBookFromScreen() {}
+function removeBookFromArray(index) {
+	myLibrary.splice(index, 1);
+}
+
+function updateIndexOfBooks() {
+	for (let i = 0; i < myLibrary.length; i++) {
+		myLibrary[i]['index'] = i;
+	}
+}
+
+function deleteBook(index) {
+	removeBookFromArray(index);
+	updateIndexOfBooks();
+	redisplayBooks();
+}
+
+function deleteAllBooks() {
+	while (myLibrary.length) {
+		deleteBook(0);
+	}
+}
 
 let myLibrary = [];
 const submitButton = document.querySelector('#submit-button');
@@ -64,8 +86,6 @@ submitButton.addEventListener('click', (e) => {
 	let pagesNumber = document.querySelector('#pages-input').value;
 	let status = checkBookStatus();
 
-	// console.log(titleName, authorName, pagesNumber, status);
-
 	if (
 		titleName != '' &&
 		authorName != '' &&
@@ -73,31 +93,28 @@ submitButton.addEventListener('click', (e) => {
 		status != ''
 	) {
 		let newBookObject = new Book(titleName, authorName, pagesNumber, status);
-		addBookToLibrary(newBookObject);
-		newBookObject['index'] = myLibrary.indexOf(newBookObject);
-		console.log(newBookObject.index);
-		removeBooksFromScreen();
-		displayBooks();
+		addBookToArray(newBookObject);
+		updateIndexOfBooks();
+		redisplayBooks();
 	}
 });
 
-clearButton.addEventListener('click', (e) => {
-	console.log('clear button clicked');
-	removeBooksFromScreen();
-	removeBooksFromArray();
-});
+// deleteButtonList.forEach((deleteButton) => {
+// 	deleteButton.addEventListener('click', (e) => {
+// 		deleteBook(?); //to find out the index I would have to take the title of the book and look it up on myLibrary
+// 	});
+// });
 
-deleteButtonList.forEach((deleteButton) => {
-	deleteButton.addEventListener('click', (e) => {
-		alert('worked');
-		hideBookFromScreen();
-	});
-});
+// clearButton.addEventListener('click', (e) => {
+// 	console.log('entrou');
+// 	deleteAllBooks();
+// });
 
 /*
 TO DO LIST
 - solve form related issue
 - add option to change status after adding a book
 - find out why clear all button stop working after adding a book
-- new delete buttons 
+- new delete buttons dont work
+- add functionality to clear all and delete buttons CHECK
 */
