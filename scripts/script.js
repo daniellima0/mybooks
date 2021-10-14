@@ -22,13 +22,29 @@ function redisplayBooks() {
 	removeBooksFromScreen();
 
 	for (let i = 0; i < myLibrary.length; i++) {
-		tbody.innerHTML += `<tr>
+		if (myLibrary[i].status == 'Read') {
+			tbody.innerHTML += `<tr>
 			<td>${myLibrary[i].title}</td>
 			<td>${myLibrary[i].author}</td>
 			<td>${myLibrary[i].pages}</td>
-			<td>${myLibrary[i].status}</td>
+			<td><label class="switch">
+			<input type="checkbox" checked>
+			<span class="slider round"></span>
+		  </label></td>
 			<td><button class="delete-button" onclick="deleteBook(${myLibrary[i].index});"><img src="./images/trash-can3.png" alt=""></button></td>
-		</tr>`;
+			</tr>`;
+		} else if (myLibrary[i].status == 'Unread') {
+			tbody.innerHTML += `<tr>
+			<td>${myLibrary[i].title}</td>
+			<td>${myLibrary[i].author}</td>
+			<td>${myLibrary[i].pages}</td>
+			<td><label class="switch">
+			<input type="checkbox">
+			<span class="slider round"></span>
+		  </label></td>
+			<td><button class="delete-button" onclick="deleteBook(${myLibrary[i].index});"><img src="./images/trash-can3.png" alt=""></button></td>
+			</tr>`;
+		}
 	}
 }
 
